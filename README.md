@@ -45,3 +45,11 @@ $ npm i next@14.2.0 eslint-config-next@14.2.0
    ```
    $  npm i bcryp
    ```
+
+4. Jest
+
+   ```
+   $ npm install -D jest jest-environment-jsdom @testing-library/react @testing-library/jest-dom
+   $ npm i --save-dev @types/jest
+   $ npm install --save-dev ts-node
+   ```

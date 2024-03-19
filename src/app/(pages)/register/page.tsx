@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { Register } from "../../lib/function/fe/register";
+import { Register } from "@/lib/function/fe/register";
 import toast from "react-hot-toast";
 import { useState } from "react";
 import LoadingCircle from "@/components/Loading/LoadingCircle";
