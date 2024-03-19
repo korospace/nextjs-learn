@@ -26,6 +26,8 @@ export default withAuth(Middleware, [
   "/login",
   "/register",
   "/dashboard",
+  "/dashboard/article",
   "/dashboard/kategori",
+  "/dashboard/sampah",
   "/dashboard/profile",
 ]);

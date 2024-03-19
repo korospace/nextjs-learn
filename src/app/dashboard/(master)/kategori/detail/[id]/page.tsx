@@ -8,7 +8,6 @@ export default async function KategoriFormPage({
   params: { id: string };
 }) {
   const category = await ListCategori(params.id);
-  console.log(category);
 
   return (
     <main className="p-5">

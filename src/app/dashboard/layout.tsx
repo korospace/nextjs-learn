@@ -23,7 +23,7 @@ export default function DashboardLayout({
           <a className="flex items-center space-x-3 rtl:space-x-reverse">
             <p className="flex items-center space-x-3 rtl:space-x-reverse">
               <Image
-                src={`/assets/images/next.png`}
+                src={`/images/next.png`}
                 width={40}
                 height={40}
                 className="bg-white rounded-md"

@@ -22,10 +22,11 @@ export default async function KategoriPage() {
                 <div className="block w-full p-6 bg-gray-800 rounded">
                   <Image
                     src={row.img}
-                    width={100}
-                    height={100}
-                    className="mb-2 rounded-md"
+                    width={1000}
+                    height={1000}
+                    className="mb-2 rounded-md w-40" // className akan meng-override width&height. tetapi kualitas gambar tetap menggunakan width&height
                     alt="Flowbite Logo"
+                    loading="lazy"
                   />
                   <h5 className="mb-2 text-2xl font-bold text-white">
                     {row.name}
