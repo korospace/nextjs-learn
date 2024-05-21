@@ -53,3 +53,20 @@ $ npm i next@14.2.0 eslint-config-next@14.2.0
    $ npm i --save-dev @types/jest
    $ npm install --save-dev ts-node
    ```
+
+5. Prisma
+
+   ```
+   // installation
+   $ yarn add -D prisma
+   $ yarn add @prisma/client
+
+   // init project
+   $ yarn prisma init
+
+   // pull existing table into model code
+   $ yarn prisma db pull
+
+   // generate table from model
+   $ yarn prisma migrate dev
+   ```

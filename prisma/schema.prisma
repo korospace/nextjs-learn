@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model category {
+  Id  Int @id @default(autoincrement()) @db.UnsignedInt @map("id")
+  Name String @db.VarChar(255) @map("name")
+}
+
+model article {
+  Id         Int       @id @default(autoincrement()) @db.UnsignedInt @map("id")
+  Title      String    @default(dbgenerated("(current_timestamp())")) @db.VarChar(255) @map("title")
+  Slug       String    @db.VarChar(255) @map("slug")
+  Excerpt    String    @db.Text @map("excerpt")
+  Content    String?   @db.LongText @map("content")
+  CreatedAt  DateTime? @db.DateTime(0) @map("created_at")
+  UpdatedAt  DateTime? @db.DateTime(0) @map("updated_at")
+  CreatedBy  Int? @map("created_by")
+  UpdatedBy  Int? @map("updated_by")
+}

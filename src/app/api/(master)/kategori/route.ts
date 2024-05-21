@@ -1,4 +1,5 @@
 import { retriveData, retriveDataById } from "@/lib/firebase/services";
+import { PrismaClient } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 
 const arr_category: any = [
@@ -31,16 +32,15 @@ const arr_category: any = [
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const category_id = searchParams.get("id");
-  
+
   let data: any;
 
   if (category_id) {
     // data = arr_category.find((c: any) => c.id == category_id);
     data = await retriveDataById("category", category_id);
-  }
-  else {
+  } else {
     // data = arr_category
-    data = await retriveData("category")
+    data = await retriveData("category");
   }
 
   return NextResponse.json({
@@ -48,4 +48,28 @@ export async function GET(request: NextRequest) {
     message: "list kategori " + category_id,
     data,
   });
+}
+
+export async function POST(request: NextRequest) {
+  const req = await request.json();
+
+  const prisma = new PrismaClient();
+
+  try {
+    await prisma.category.create({
+      data: {
+        Name: req.name,
+      },
+    });
+    prisma.$disconnect(); // Disconnect from Prisma after usage
+    return new Response(JSON.stringify({ message: "ok" }), {
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (error) {
+    prisma.$disconnect(); // Disconnect from Prisma in case of error
+    return new Response(JSON.stringify({ message: "error" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
 }
