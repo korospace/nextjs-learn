@@ -43,7 +43,7 @@ $ npm i next@14.2.0 eslint-config-next@14.2.0
 3. Bcrypt
 
    ```
-   $  npm i bcryp
+   $  npm i bcrypt
    ```
 
 4. Jest
